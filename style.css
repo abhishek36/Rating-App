@@ -136,8 +136,36 @@ h2 {
   position: relative;
   box-shadow: var(--bx);
   font-size: 20px;
-  color: var(--color);
+  /* color: var(--color); */
+  color: green;
   margin-bottom: 20px;
+  transform: translateX(100%);
+  animation: movesave 0.4s forwards;
+  transition: 0.4s;
+}
+
+@keyframes movesave {
+  100%{
+    transform: translateX(0);
+  }
+}
+
+.savereview::after {
+  content: "";
+  background-color: green;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  transition: 0.4s;
+  animation: saveanim 5s linear;
+}
+
+@keyframes saveanim{
+  100%{
+    width: 0;
+  }
 }
 
 .dltreview {
@@ -147,9 +175,36 @@ h2 {
   color: var(--color);
   margin-bottom: 20px;
   position: relative;
+  transform: translateX(100%);
+  animation: move 0.4s forwards;
+  transition: 0.4s;
 }
 
-.dlticon{
+@keyframes move {
+  100%{
+    transform: translateX(0);
+  }
+}
+
+.dltreview::after {
+  content: "";
+  background-color: #ff014f;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  transition: 0.4s;
+  animation: anim 5s linear;
+}
+
+@keyframes anim{
+  100%{
+    width: 0;
+  }
+}
+
+.dlticon {
   box-shadow: var(--bx);
   position: absolute;
   right: 10px;
@@ -162,7 +217,7 @@ h2 {
   border-radius: 50%;
 }
 
-.dltsavereview{
+.dltsavereview {
   box-shadow: var(--bx);
   position: absolute;
   right: 10px;

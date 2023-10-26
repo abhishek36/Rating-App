@@ -6,10 +6,10 @@ let empty = document.querySelector(".empty");
 let emptytwo = document.querySelector(".emptytwo");
 
 let savereview = (e) => {
-  if(textarea.value === ""){
-    alert("please give your rating and review both")
-  } else if (select.value < 1){
-    alert("please give your rating and review both")
+  if (textarea.value === "") {
+    alert("please give your rating and review both");
+  } else if (select.value < 1) {
+    alert("please give your rating and review both");
   } else {
     e.preventDefault();
     let newli = document.createElement("li");
@@ -19,7 +19,7 @@ let savereview = (e) => {
     let dlbtn = document.createElement("button");
     let savereview = document.createElement("div");
     let dltsavereview = document.createElement("div");
-  
+
     newli.className = "list";
     dlbtn.className = "dlbtn";
     savereview.className = "savereview";
@@ -27,19 +27,22 @@ let savereview = (e) => {
     savereview.innerText = "Your review was saved";
     dltsavereview.innerText = "x";
     dltsavereview.className = "dltsavereview";
-  
+
     h1.innerText = select.value;
     h2.innerText = textarea.value;
-  
+
     ul.appendChild(newli);
     newli.appendChild(h1);
     newli.appendChild(h2);
     newli.appendChild(dlbtn);
     empty.appendChild(savereview);
     savereview.appendChild(dltsavereview);
-  
+
+    setTimeout(() => {
+      savereview.remove();
+    }, 5000);
   }
- 
+
   // savediv.innerText = "save review"
 
   form.reset();
@@ -59,11 +62,16 @@ let removeli = (e) => {
       dltreview.innerText = "Your review was delete";
       dltreview.className = "dltreview";
       emptytwo.appendChild(dltreview);
+
       let dlticon = document.createElement("div");
       dlticon.innerText = "X";
       dlticon.className = "dlticon";
       dltreview.appendChild(dlticon);
       e.target.parentElement.remove();
+
+      setTimeout(() => {
+        dltreview.remove();
+      }, 5000);
     }
   }
 };
